@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brickell Investing — Invierte en la bolsa sin ser trader</title>
+  <meta name="description" content="Invierte en la bolsa de valores de forma segura y automática. Sin ser trader, sin estafas, sin complicaciones.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0D0F14; color: #F5F4F0; }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 48px; border-bottom: 0.5px solid #1e2130; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-wordmark { display: flex; flex-direction: column; line-height: 1; }
+    .nav-wordmark span:first-child { font-size: 16px; font-weight: 600; letter-spacing: 3px; color: #F5F4F0; }
+    .nav-wordmark span:last-child { font-size: 9px; letter-spacing: 4px; color: #00D4FF; margin-top: 3px; }
+    .nav-cta { background: linear-gradient(90deg, #00D4FF, #FFB347); color: #0D0F14; font-size: 13px; font-weight: 700; padding: 9px 22px; border-radius: 6px; border: none; cursor: pointer; text-decoration: none; }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* HERO */
+    .hero { padding: 96px 48px 80px; text-align: center; border-bottom: 0.5px solid #1e2130; }
+    .hero-badge { display: inline-block; font-size: 11px; letter-spacing: 3px; color: #00D4FF; border: 0.5px solid #00D4FF; background: rgba(0,212,255,0.07); padding: 5px 16px; border-radius: 20px; margin-bottom: 36px; text-transform: uppercase; }
+    .hero h1 { font-size: 48px; font-weight: 500; line-height: 1.15; max-width: 680px; margin: 0 auto 24px; background: linear-gradient(90deg, #00D4FF 0%, #FFB347 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { font-size: 18px; color: #E0E0E0; line-height: 1.8; max-width: 520px; margin: 0 auto 44px; }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: linear-gradient(90deg, #00D4FF, #FFB347); color: #0D0F14; font-size: 15px; font-weight: 700; padding: 14px 34px; border-radius: 8px; border: none; cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary { background: transparent; color: #F5F4F0; font-size: 15px; padding: 14px 34px; border-radius: 8px; border: 0.5px solid #2a3050; cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn-secondary:hover { border-color: #00D4FF; color: #00D4FF; }
+
+    /* STATS */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 0.5px solid #1e2130; }
+    .stat { padding: 36px 24px; text-align: center; border-right: 0.5px solid #1e2130; }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-size: 34px; font-weight: 500; background: linear-gradient(90deg, #00D4FF, #FFB347); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: 12px; color: #C0C0C0; margin-top: 6px; }
+
+    /* SECTIONS */
+    .section-full { padding: 72px 48px; border-bottom: 0.5px solid #1e2130; }
+    .section-inner { max-width: 880px; margin: 0 auto; }
+    .section-tag { font-size: 11px; letter-spacing: 3px; color: #00D4FF; text-transform: uppercase; margin-bottom: 18px; }
+    .section-full h2 { font-size: 30px; font-weight: 500; margin-bottom: 16px; line-height: 1.3; background: linear-gradient(90deg, #00D4FF 0%, #FFB347 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; }
+    .section-full p { font-size: 15px; color: #E0E0E0; line-height: 1.8; max-width: 560px; }
+
+    /* MIEDOS */
+    .fears { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 36px; }
+    .fear-card { background: #111520; border: 0.5px solid #1e2130; border-radius: 12px; padding: 26px 22px; transition: border-color 0.2s; }
+    .fear-card:hover { border-color: #00D4FF; }
+    .fear-icon { font-size: 24px; margin-bottom: 12px; }
+    .fear-card h3 { font-size: 14px; font-weight: 600; color: #F5F4F0; margin-bottom: 8px; }
+    .fear-card p { font-size: 13px; color: #C0C0C0; line-height: 1.7; margin: 0; }
+
+    /* COMO FUNCIONA */
+    .steps { display: flex; flex-direction: column; margin-top: 36px; }
+    .step { display: flex; gap: 28px; align-items: flex-start; padding: 28px 0; border-bottom: 0.5px solid #1e2130; }
+    .step:last-child { border-bottom: none; }
+    .step-num { font-size: 11px; color: #00D4FF; font-weight: 700; letter-spacing: 1px; min-width: 28px; margin-top: 3px; }
+    .step-body h3 { font-size: 17px; font-weight: 500; color: #F5F4F0; margin-bottom: 6px; }
+    .step-body p { font-size: 14px; color: #C0C0C0; line-height: 1.7; margin: 0; }
+    .step-badge { display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 20px; margin-top: 8px; background: rgba(0,212,255,0.08); color: #00D4FF; border: 0.5px solid #00D4FF; }
+
+    /* PARA QUIEN */
+    .profiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 36px; }
+    .profile { background: #111520; border: 0.5px solid #1e2130; border-radius: 12px; padding: 24px 20px; transition: border-color 0.2s; }
+    .profile:hover { border-color: #FFB347; }
+    .profile-icon { font-size: 28px; margin-bottom: 12px; }
+    .profile h3 { font-size: 14px; font-weight: 600; color: #F5F4F0; margin-bottom: 6px; }
+    .profile p { font-size: 13px; color: #C0C0C0; line-height: 1.6; margin: 0; }
+
+    /* IBKR */
+    .ibkr-box { background: #111520; border: 0.5px solid #00D4FF; border-radius: 14px; padding: 36px; margin-top: 36px; }
+    .ibkr-box h3 { font-size: 20px; font-weight: 500; color: #F5F4F0; margin-bottom: 12px; }
+    .ibkr-box p { font-size: 14px; color: #C0C0C0; line-height: 1.8; max-width: 500px; margin-bottom: 24px; }
+    .ibkr-features { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
+    .ibkr-feature { font-size: 13px; color: #00D4FF; display: flex; align-items: center; gap: 6px; }
+    .ibkr-feature::before { content: "✓"; font-weight: 700; }
+    .ibkr-btn { background: linear-gradient(90deg, #00D4FF, #FFB347); color: #0D0F14; font-size: 14px; font-weight: 700; padding: 12px 28px; border-radius: 8px; border: none; cursor: pointer; text-decoration: none; display: inline-block; }
+    .ibkr-btn:hover { opacity: 0.9; }
+
+    /* TESTIMONIOS */
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 36px; }
+    .testi { background: #111520; border: 0.5px solid #1e2130; border-radius: 12px; padding: 24px 20px; transition: border-color 0.2s; }
+    .testi:hover { border-color: #00D4FF; }
+    .testi-stars { color: #00D4FF; font-size: 13px; margin-bottom: 12px; letter-spacing: 2px; }
+    .testi-text { font-size: 13px; color: #C0C0C0; line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+    .testi-name { font-size: 12px; font-weight: 700; color: #00D4FF; }
+    .testi-role { font-size: 11px; color: #A0A8C0; margin-top: 3px; }
+
+    /* CTA */
+    .cta-section { padding: 96px 48px; text-align: center; }
+    .cta-section h2 { font-size: 36px; font-weight: 500; margin-bottom: 16px; background: linear-gradient(90deg, #00D4FF 0%, #FFB347 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; }
+    .cta-section p { font-size: 16px; color: #C0C0C0; margin-bottom: 36px; }
+    .email-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 480px; margin: 0 auto; }
+    .email-form input { flex: 1; min-width: 220px; padding: 14px 18px; background: #111520; border: 0.5px solid #1e2130; border-radius: 8px; color: #F5F4F0; font-size: 14px; outline: none; }
+    .email-form input::placeholder { color: #2a3050; }
+    .email-form input:focus { border-color: #00D4FF; }
+    .email-form button { background: linear-gradient(90deg, #00D4FF, #FFB347); color: #0D0F14; font-size: 14px; font-weight: 700; padding: 14px 26px; border-radius: 8px; border: none; cursor: pointer; white-space: nowrap; }
+    .email-form button:hover { opacity: 0.9; }
+    .cta-disclaimer { font-size: 12px; color: #A0A8C0; margin-top: 16px; }
+
+    footer { padding: 28px 48px; border-top: 0.5px solid #1e2130; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 12px; color: #A0A8C0; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: #A0A8C0; text-decoration: none; }
+    .footer-links a:hover { color: #00D4FF; }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .hero { padding: 64px 20px 52px; }
+      .hero h1 { font-size: 30px; }
+      .stats { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 0.5px solid #1e2130; }
+      .stat:last-child { border-bottom: none; }
+      .section-full { padding: 52px 20px; }
+      .cta-section { padding: 64px 20px; }
+      footer { padding: 20px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <line x1="9" y1="30" x2="9" y2="26" stroke="#FFB347" stroke-width="1.8" stroke-linecap="round"/>
+        <rect x="4" y="14" width="10" height="12" rx="2" fill="#FFB347"/>
+        <line x1="9" y1="14" x2="9" y2="8" stroke="#FFB347" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="18" y1="27" x2="18" y2="23" stroke="#00D4FF" stroke-width="1.8" stroke-linecap="round"/>
+        <rect x="13" y="17" width="10" height="6" rx="2" fill="none" stroke="#00D4FF" stroke-width="1.4"/>
+        <line x1="18" y1="17" x2="18" y2="11" stroke="#00D4FF" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="27" y1="31" x2="27" y2="27" stroke="#FFB347" stroke-width="1.8" stroke-linecap="round"/>
+        <rect x="22" y="10" width="10" height="17" rx="2" fill="#FFB347"/>
+        <line x1="27" y1="10" x2="27" y2="5" stroke="#FFB347" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <div class="nav-wordmark">
+        <span>BRICKELL</span>
+        <span>INVESTING</span>
+      </div>
+    </a>
+    <a href="#empezar" class="nav-cta">Abre tu cuenta gratis</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Tu primera inversión en la bolsa, sin complicaciones</div>
+    <h1>Invierte en la bolsa de valores de forma segura y en automático</h1>
+    <p>Con Brickell abrirás tu propia cuenta de inversión en minutos. Tu dinero va a instrumentos seguros y crece en automático — mientras tú aprendes de instrumentos financieros.</p>
+    <div class="hero-btns">
+      <a href="#como-funciona" class="btn-primary">Quiero invertir parte de mi quincena o ahorros</a>
+      <a href="#para-quien" class="btn-secondary">¿Es para mí?</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">+2,400</div>
+      <div class="stat-label">Latinoamericanos ya invirtiendo</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$47</div>
+      <div class="stat-label">Mínimo para empezar</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10.4%</div>
+      <div class="stat-label">Retorno histórico anual</div>
+    </div>
+  </div>
+
+  <!-- MIEDOS -->
+  <div class="section-full">
+    <div class="section-inner">
+      <div class="section-tag">Lo que te frena</div>
+      <h2>¿Por qué la mayoría de latinoamericanos no invierte?</h2>
+      <p>No es falta de dinero ni de ganas. Es miedo — y con razón. Pero hay una forma de invertir que elimina todos estos problemas.</p>
+      <div class="fears">
+        <div class="fear-card">
+          <div class="fear-icon">🎰</div>
+          <h3>"La bolsa es un casino"</h3>
+          <p>No si inviertes en ETFs — fondos que replican toda la economía americana. No apuestas a una empresa, inviertes en todas.</p>
+        </div>
+        <div class="fear-card">
+          <div class="fear-icon">🤯</div>
+          <h3>"No entiendo nada de esto"</h3>
+          <p>No necesitas entender. Solo necesitas seguir 3 pasos y activar la inversión automática. Nosotros te guiamos.</p>
+        </div>
+        <div class="fear-card">
+          <div class="fear-icon">🚨</div>
+          <h3>"Me van a estafar"</h3>
+          <p>Tu dinero va directo a Interactive Brokers — el broker más grande del mundo, regulado en más de 150 países.</p>
+        </div>
+        <div class="fear-card">
+          <div class="fear-icon">💸</div>
+          <h3>"Necesito mucho dinero"</h3>
+          <p>Puedes empezar con $47 USD. Lo que importa no es cuánto, sino que sea constante y automático cada quincena.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMO FUNCIONA -->
+  <div class="section-full" id="como-funciona">
+    <div class="section-inner">
+      <div class="section-tag">Cómo funciona</div>
+      <h2>Tres pasos y tu dinero trabaja solo</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <h3>Abre tu cuenta de inversión</h3>
+            <p>Te guiamos paso a paso para abrir tu cuenta en Interactive Brokers — gratis, en línea, desde tu celular. Disponible para México, Colombia, Argentina, Canadá y más.</p>
+            <span class="step-badge">15 minutos</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <h3>Elige cuánto quieres invertir</h3>
+            <p>Desde $47 USD al mes. Tú decides. Lo conectamos a instrumentos seguros como ETFs que replican la bolsa americana — sin riesgo extremo, sin especulación.</p>
+            <span class="step-badge">Desde $47 USD</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <h3>Activa el piloto automático</h3>
+            <p>Cada quincena tu dinero se invierte solo. No tienes que estar pendiente de la bolsa, no tienes que tomar decisiones. Solo ver crecer tu patrimonio.</p>
+            <span class="step-badge">100% automático</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARA QUIEN -->
+  <div class="section-full" id="para-quien">
+    <div class="section-inner">
+      <div class="section-tag">¿Es para mí?</div>
+      <h2>Brickell es para ti si...</h2>
+      <div class="profiles">
+        <div class="profile">
+          <div class="profile-icon">💼</div>
+          <h3>Tienes dinero que quieres hacer crecer</h3>
+          <p>Ya sea de tu quincena, negocio o ahorros — aquí tu dinero trabaja por ti.</p>
+        </div>
+        <div class="profile">
+          <div class="profile-icon">🇲🇽</div>
+          <h3>Eres latino en cualquier país</h3>
+          <p>México, Colombia, Argentina, Canadá, EEUU — IBKR acepta clientes de más de 150 países.</p>
+        </div>
+        <div class="profile">
+          <div class="profile-icon">😴</div>
+          <h3>No quieres ser trader</h3>
+          <p>No quieres estar pegado a una pantalla viendo gráficas. Solo quieres invertir y olvidarte.</p>
+        </div>
+        <div class="profile">
+          <div class="profile-icon">🛡️</div>
+          <h3>Quieres seguridad, no promesas</h3>
+          <p>Nada de rendimientos del 100% ni esquemas raros. Solo la bolsa real, con instrumentos probados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IBKR -->
+  <div class="section-full">
+    <div class="section-inner">
+      <div class="section-tag">Tu broker</div>
+      <h2>Tu dinero en el broker más grande del mundo</h2>
+      <div class="ibkr-box">
+        <h3>Interactive Brokers — IBKR</h3>
+        <p>No inventamos nada. Tu dinero va directamente a Interactive Brokers — el broker institucional más grande del mundo. Regulado, seguro y disponible para latinoamericanos en cualquier país.</p>
+        <div class="ibkr-features">
+          <span class="ibkr-feature">Regulado en 150+ países</span>
+          <span class="ibkr-feature">Sin comisiones en ETFs</span>
+          <span class="ibkr-feature">Tu dinero siempre es tuyo</span>
+          <span class="ibkr-feature">App en español</span>
+        </div>
+        <a href="https://www.interactivebrokers.com" target="_blank" class="ibkr-btn">Abrir mi cuenta en IBKR →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIOS -->
+  <div class="section-full">
+    <div class="section-inner">
+      <div class="section-tag">Lo que dicen</div>
+      <h2>Latinoamericanos que ya están invirtiendo</h2>
+      <div class="testimonials">
+        <div class="testi">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Tenía miedo de que fuera otra estafa. Pero mi dinero está en IBKR, yo lo veo en la app. Llevo 8 meses y ya veo cómo crece."</p>
+          <div class="testi-name">Carlos M.</div>
+          <div class="testi-role">México · Ingeniero</div>
+        </div>
+        <div class="testi">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Nunca pensé que yo, enfermera, podría tener inversiones en la bolsa americana. Brickell me lo hizo posible en una tarde."</p>
+          <div class="testi-name">Valeria R.</div>
+          <div class="testi-role">Colombia · Enfermera</div>
+        </div>
+        <div class="testi">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Abrí mi cuenta desde Canadá siguiendo los videos. Ahora cada quincena se me va automático a la bolsa. Sin hacer nada."</p>
+          <div class="testi-name">Miguel T.</div>
+          <div class="testi-role">Canadá · Construcción</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section" id="empezar">
+    <h2>Tus ahorros y quincena pueden trabajar por ti desde hoy</h2>
+    <p>Abre tu cuenta en Interactive Brokers en menos de 15 minutos. Gratis, seguro y disponible en toda Latinoamérica.</p>
+    <a href="https://www.interactivebrokers.com" target="_blank" class="btn-primary" style="font-size:16px; padding:16px 40px;">Abrir mi cuenta en IBKR →</a>
+    <div class="cta-disclaimer">Al abrir tu cuenta con nuestro link nos ayudas a mantener Brickell Investing gratuito.</div>
+  </section>
+
+  <footer>
+    <div class="footer-copy">© 2026 Brickell Investing. No somos asesores financieros. Invertir implica riesgos.</div>
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Contacto</a>
+    </div>
+  </footer>
+
+</body>
+</html>
